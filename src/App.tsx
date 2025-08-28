@@ -1,12 +1,8 @@
-import { GithubIcon, KeyIcon, LogInIcon } from 'lucide-react'
+import { GithubIcon, LogInIcon } from 'lucide-react'
 
 import { FeatureFlag } from './components/feature-flag'
-import { useFeatureFlag } from './hooks/use-feature-flag'
-import { cn } from './lib/utils'
 
 export function App() {
-  const canRequestAuthenticatedCode = useFeatureFlag('BETA_USERS')
-
   return (
     <div className="flex min-h-screen w-full items-center justify-center bg-zinc-50">
       <div className="flex flex-col gap-4 border border-zinc-200 p-4 rounded-lg w-lg">
@@ -58,16 +54,6 @@ export function App() {
             <GithubIcon className="size-5" /> Entrar com GitHub
           </button>
         </FeatureFlag>
-
-        <button
-          disabled={!canRequestAuthenticatedCode}
-          className={cn(
-            'bg-amber-700 text-zinc-50 py-2 rounded-md flex items-center justify-center gap-2 cursor-pointer',
-            !canRequestAuthenticatedCode && 'opacity-50 cursor-not-allowed',
-          )}
-        >
-          <KeyIcon className="size-5" /> Solicitar código de acesso
-        </button>
       </div>
     </div>
   )
