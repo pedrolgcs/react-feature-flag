@@ -1,9 +1,11 @@
 {
   "name": "poc-feature-flag",
+  "packageManager": "pnpm@9.14.2",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "preinstall": "node ./scripts/check-pnpm.js",
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
