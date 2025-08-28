@@ -9,9 +9,6 @@ const envSchema = z.object({
   VITE_FEATURE_GIT_HUB_SIGNIN: z
     .string()
     .transform((val) => featureFlagSchema.parse(JSON.parse(val))),
-  VITE_FEATURE_BETA_USERS: z
-    .string()
-    .transform((val) => featureFlagSchema.parse(JSON.parse(val))),
 })
 
 const _env = envSchema.safeParse(import.meta.env)
